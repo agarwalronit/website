@@ -5,6 +5,11 @@ body {
 .qualitycard {
   padding: 0 10em;
 }
+@media only screen and (max-width: 500px) {
+.qualitycard{
+  padding: 0 2em;
+}
+}
 
 .features-image {
   height: 2.5em;
