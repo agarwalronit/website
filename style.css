@@ -10,7 +10,24 @@ body {
   padding: 0 2em;
 }
 }
-
+@media only screen and (max-width:1279px){
+  .fb1{
+  fill: #3b5998;
+}
+.insta1{
+  fill: white;
+  background: radial-gradient(circle at 33% 100%,
+      #ffdb8b 0%,
+      #ee653d 25%,
+      #d42e81 50%,
+      #a237b6 75%,
+      #3e57bc 100%);
+  border-radius: 0.45em;
+}
+.linkedin1{
+  fill: #0077B5;
+}
+}
 .features-image {
   height: 2.5em;
 }
@@ -18,7 +35,9 @@ body {
 .product-card {
   padding: 2em 5em;
 }
-
+.product-heading{
+  font-size: 3.5em;
+}
 /* footer start */
 .fb1:hover {
   fill: #3b5998;
@@ -211,33 +230,7 @@ body {
 }
 
 /* contact us */
-.fb:hover {
-  fill: #3b5998;
-}
 
-.insta:hover {
-  fill: white;
-  background: radial-gradient(circle at 30% 110%,
-      #ffdb8b 0%,
-      #ee653d 25%,
-      #d42e81 50%,
-      #a237b6 75%,
-      #3e57bc 100%);
-  border-radius: 8px;
-  ;
-}
-
-.linkedin:hover {
-  fill: #0077B5;
-}
-
-.btn {
-  width: 8em;
-}
-
-.btn btn-outline-dark btn-lg {
-  border-radius: 5em;
-}
 
 .contact_us_6 * {
   font-family: Nunito, sans-serif;
