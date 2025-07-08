@@ -194,11 +194,11 @@
     <!-- counters start -->
     <section class="stats-section">
         <div class="stat-card">
-            <div class="stat-number" data-target="50" data-suffix="+">0</div>
+            <div class="stat-number" data-target="200" data-suffix="+">0</div>
             <div class="stat-label">Tons Daily Capacity</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number" data-target="15" data-suffix="+">0</div>
+            <div class="stat-number" data-target="20" data-suffix="+">0</div>
             <div class="stat-label">Processing Machines</div>
         </div>
         <div class="stat-card">
@@ -208,29 +208,43 @@
     </section>
 
     <!-- Count-Up JS -->
-    <script>
-        function animateNumber(element) {
-            const target = +element.getAttribute('data-target');
-            const suffix = element.getAttribute('data-suffix') || '';
-            let count = 0;
-            const duration = 5000;
-            const stepTime = Math.floor(duration / target);
+<script>
+  function animateNumber(element) {
+    const target = +element.getAttribute('data-target');
+    const suffix = element.getAttribute('data-suffix') || '';
+    let count = 0;
+    const duration = 1500;
+    const stepTime = Math.max(Math.floor(duration / target), 20);
 
-            const counter = setInterval(() => {
-                count++;
-                element.textContent = count + suffix;
-                if (count >= target) {
-                    clearInterval(counter);
-                    element.textContent = target + suffix;
-                }
-            }, stepTime);
-        }
+    element.textContent = '0' + suffix; // Reset before re-animating
 
-        window.addEventListener('DOMContentLoaded', () => {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(el => animateNumber(el));
+    const counter = setInterval(() => {
+      count++;
+      element.textContent = count + suffix;
+      if (count >= target) {
+        clearInterval(counter);
+        element.textContent = target + suffix;
+      }
+    }, stepTime);
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counters = document.querySelectorAll('.stat-number');
+        counters.forEach(el => {
+          animateNumber(el);
         });
-    </script>
+      }
+    });
+  }, { threshold: 0.6 }); // trigger when 60% visible
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('.stats-section');
+    observer.observe(section);
+  });
+</script>
+
 
     <!-- counters end -->
     <!-- Hero start -->

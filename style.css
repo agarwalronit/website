@@ -239,7 +239,7 @@ body {
 
 @media all and (max-width: 576px) {
   .footer-5-column .footer-navbar .footer-navbar-col {
-    /* width: 100%; */
+    width: 100%;
   }
 }
 
@@ -1000,11 +1000,6 @@ body {
 }
 
 /* contact us ends */
-@media screen (max-width:400px) {
-  .carousel-caption h5 {
-    padding-bottom: -0.25rem;
-  }
-}
 
 /* hero index start */
 body {
